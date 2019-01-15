@@ -1,0 +1,14 @@
+{
+    "name": "lksnmnn/automatic-semver-versioning",
+    "description": "This shell script automates the process of bumping a version number in json formatted version file following semver standard (major, minor, patch).",
+    "type": "library",
+    "license": "Apache 2.0",
+    "authors": [
+        {
+            "name": "Lukas Neumann",
+            "email": "lksnmnn@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
