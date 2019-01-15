@@ -88,7 +88,7 @@ case $bump_type in
     ;;
   *)
     echo "Unknown bump type. Please use major, minor or patch."
-    exit(1)
+    exit 1
     ;;
 esac
 
