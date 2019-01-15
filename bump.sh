@@ -76,16 +76,13 @@ version_array=(${old_version//./ })
 case $bump_type in
   patch)
     ((a[2]++))
-    break;;
   minor)
     ((a[1]++))
     a[2]=0 
-    break;; 
   major)
     ((a[0]++))
     a[1]=0 
     a[2]=0 
-    break;; 
 esac
 
 # combine to new version
