@@ -60,7 +60,7 @@ fi
 # read the old version from file ({}.version)
 old_version=$(jq -r '.version' ${version_path})
 # check if version is set, else set 0.0.0
-if [ -z ${old_version+x} ]
+if [ -z ${old_version} ]
   then
     old_version="0.0.0"
 fi
@@ -70,23 +70,26 @@ if [ "$verbose" == true ]
 fi
 
 # explode version string into array
-version_array=(${old_version//./ })
+version_array=( ${old_version//./ } )
 
 # increment version numbers as requested
 case $bump_type in
   patch)
-    ((a[2]++))
+    ((version_array[2]++))
+    ;;
   minor)
-    ((a[1]++))
-    a[2]=0 
+    ((version_array[1]++))
+    version_array[2]=0
+    ;;
   major)
-    ((a[0]++))
-    a[1]=0 
-    a[2]=0 
+    ((version_array[0]++))
+    version_array[1]=0 
+    version_array[2]=0 
+    ;;
 esac
 
 # combine to new version
-new_version="${a[0]}.${a[1]}.${a[2]}"
+new_version="${version_array[0]}.${version_array[1]}.${version_array[2]}"
 if [ "$verbose" == true ]
   then
     echo "New version is ${new_version}"
