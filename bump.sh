@@ -13,7 +13,7 @@
 # After increasing the version, it updates the CHANGELOG.md, creates a new commit and
 # git tags the commit with the new version number. Push has to be made manually.
 #
-# Usage: ./automatic_semver_version.sh -p </path/to/version.json> -b <major|minor|patch>
+# Usage: ./bump.sh -p </path/to/version.json> -b <major|minor|patch>
 ##
 
 # init vars
