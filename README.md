@@ -2,7 +2,7 @@
 This shell script automates the process of bumping a version number in a JSON formatted version file following semver standard (major, minor, patch).
 
 ## Usage
-`./automatic-semver-version.sh -p <path/to/version.json> -b <major|minor|patch>`
+`./bump.sh -p <path/to/version.json> -b <major|minor|patch>`
 
 ## What it does
 - reads old version from file (default "version.json")
