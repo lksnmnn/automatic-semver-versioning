@@ -47,7 +47,7 @@ if [ "$use_default_path" == true ]
     version_path="version.json"
 fi
 
-# recommended semver bump type (i.e. major, minor, patch, hotfix)
+# recommended semver bump type (i.e. major, minor, patch)
 if [ -z "$bump_type" ]
   then
     bump_type=$( conventional-recommended-bump -p 'angular' )
@@ -86,6 +86,10 @@ case $bump_type in
     version_array[1]=0 
     version_array[2]=0 
     ;;
+  *)
+    echo "Unknown bump type. Please use major, minor or patch."
+    exit(1)
+    ;;
 esac
 
 # combine to new version
@@ -96,8 +100,8 @@ if [ "$verbose" == true ]
 fi
 
 # write back new version in version file
-updated_file=$(jq '.version = $new' --arg new "${new_version}" ${version_path})
-echo "$new_file" > $version_path
+updated_file=$(jq '.version = $new' --arg new ${new_version} ${version_path})
+echo "$updated_file" > $version_path
 
 # add version file to git
 git add ${version_path}
@@ -115,7 +119,7 @@ if [ "$verbose" == true ]
 fi
 
 # commit current changes
-git commit -am "chore(version): create new ${bump_type} version ${new_version}"
+git commit -am "chore(version): create new ${bump_type} version v${new_version}"
 
 # tag the current commit
-git tag -a v"${new_version}" -m "Automatic version: ${bump_type}"
+git tag -a v${new_version} -m "Automatic version: ${bump_type}"
