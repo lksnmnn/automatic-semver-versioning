@@ -1,5 +1,5 @@
 # Auto semver
-This shell script automates the process of bumping a version number in json formatted version file following semver standard (major, minor, patch).
+This shell script automates the process of bumping a version number in a JSON formatted version file following semver standard (major, minor, patch).
 
 ## Usage
 `./automatic-semver-version.sh -p <path/to/version.json> -b <major|minor|patch>`
