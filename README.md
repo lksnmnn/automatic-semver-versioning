@@ -20,9 +20,5 @@ This shell script automates the process of bumping a version number in a JSON fo
 - [conventional-recommended-bump](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-recommended-bump) (to get the default bump type, if not supplied)
 - git (to commit and tag)
 
-## Helper
-There is a package.json which installs the above mentioned JavaScript dependencies.
-Just call `npm install`.
-
 ## License
 Free software, see LICENSE file for further information.
